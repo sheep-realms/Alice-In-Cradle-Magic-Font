@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Alice In Cradle Magic';
+    src: url('AliceInCradleMagic.eot');
+    src: url('AliceInCradleMagic.eot?#iefix') format('embedded-opentype'),
+        url('AliceInCradleMagic.woff2') format('woff2'),
+        url('AliceInCradleMagic.woff') format('woff'),
+        url('AliceInCradleMagic.svg#AliceInCradleMagic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
