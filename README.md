@@ -15,3 +15,7 @@ The flaws this font has:
 - Very few characters are supported;
 - 某些字符可能辨识困难。
 - Some characters may be difficult to read.
+
+2024.12 更新 (Update):
+- 添加了 LaTeX 支持，基于 TikZ 绘图语言
+- Added LaTeX support, powered by TikZ language.
