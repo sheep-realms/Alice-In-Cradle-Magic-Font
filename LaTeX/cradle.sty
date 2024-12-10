@@ -1,0 +1,499 @@
+\NeedsTeXFormat{LaTeX2e} % 使用此宏包时所需的 TeX 格式
+\ProvidesPackage{cradle}[2022-05-28 AliceInCradle Symbols] % 文件名、日期和描述
+\RequirePackage{tikz} % 依赖 TikZ 绘图语言宏包
+
+\newcommand\pixelcm{.72} % 像素体总宽度 (cm) 含两侧空白
+\newcommand\pixelratio{1.2} % 像素体总宽度除以非空白宽度
+\newcommand\cradlecm{.72} % 印刷体总宽度 (cm) 含两侧空白
+\newcommand\cradleratio{1.2} % 印刷体总宽度除以非空白宽度
+
+\newcommand\pixel[2]{% 像素体摇篮文，使用 \pixelXX 书写，XX 为两位十进制 ASCII 值
+     \if3#1% 32,33,35,36,37
+     \if2#2% space
+\makebox[\pixelcm cm]{}% 全角空格
+\else\if3#2% ! 100
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,.4)rectangle(.2,.6); \fill(.8,.4)rectangle(1,.6);
+     \fill(.4,0)-|(.6,.2)-|(.8,.4)-|(.6,1)-|(.4,.4)-|(.2,.2)-|cycle;
+}}%
+\else\if5#2% # 1000
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(.4,.6)-|(.2,.4)-|(.4,0)-|(.6,.8)-|(1,1)-|(0,.6)-|(.2,.8)-|cycle;
+}}%
+\else\if6#2% $ 10000
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(.6,.8)-|(.8,.6)-|(1,1)-|(0,.8)-|(.4,0)-|(.6,.4)-|(.8,.6)-|cycle;
+     \fill(0,.4)rectangle(.2,.6);
+}}%
+\else\if7#2% %
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,1)rectangle(.2,.6)rectangle(.8,.4)rectangle(1,0);
+     \fill(.4,0)rectangle(.6,.2); \fill(.4,.8)rectangle(.6,1);
+}}%
+\fi\fi\fi\fi\fi%
+\else\if4#1% 44-49
+     \if4#2% , square
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,0)rectangle(1,1);
+}}%
+\else\if5#2% -
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(.2,.6)rectangle(.8,.8); \fill(.2,.2)rectangle(.4,.4); \fill(.6,.2)rectangle(.8,.4);
+}}%
+\else\if6#2% . zero
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(.4,.4)rectangle(.6,.6);
+}}%
+\else\if7#2% /
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,0)rectangle(.2,.4)rectangle(.8,.6)rectangle(1,1);
+}}%
+\else\if8#2% 0 ten
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,.4)rectangle(.2,.6); \fill(.8,.4)rectangle(1,.6);
+     \fill(.4,0)-|(.6,.6)-|(.8,.8)-|(.6,1)-|(.4,.8)-|(.2,.6)-|cycle;
+}}%
+\else\if9#2% 1
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,.4)rectangle(1,.6);
+}}%
+\fi\fi\fi\fi\fi\fi% ,-./01
+\else\if5#1% 50-58
+     \if0#2% 2
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(.8,0)-|(1,1)-|(0,.8)-|cycle;
+}}%
+\else\if1#2% 3
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(.8,0)-|(1,1)-|(0,.8)-|cycle;
+     \fill(0,0)rectangle(.2,.2)rectangle(.4,.4)rectangle(.6,.6);
+}}%
+\else\if2#2% 4
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(.4,0)rectangle(.6,.2)rectangle(.8,.4)rectangle(1,.6);
+     \fill(.2,.2)rectangle(.4,.4);   \fill(.6,.6)rectangle(.8,.8);
+     \fill(0,.4)rectangle(.2,.6)rectangle(.4,.8)rectangle(.6,1);
+}}%
+\else\if3#2% 5
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(.4,0)rectangle(.6,.2)rectangle(.8,.4)rectangle(1,.6);
+     \fill(.2,.2)rectangle(.4,.4)rectangle(.6,.6)rectangle(.8,.8);
+     \fill(0,.4)rectangle(.2,.6)rectangle(.4,.8)rectangle(.6,1);
+}}%
+\else\if4#2% 6
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(.4,0)rectangle(.6,.2)rectangle(.8,.4)rectangle(1,.6);
+     \fill(.2,.2)rectangle(.4,.4)rectangle(.6,.6);
+     \fill(0,.4)rectangle(.2,.6);
+     \fill(0,.8)-|(.2,.6)-|(.4,.8)-|(.6,.6)-|(.8,.8)-|(1,1)-|cycle;
+}}%
+\else\if5#2% 7
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,.6)rectangle(.2,.4)rectangle(.4,.2)rectangle(.6,0);
+     \fill(.4,.4)rectangle(.6,.6);
+     \fill(.8,0)-|(1,1)-|(0,.8)-|(.2,.6)-|(.4,.8)-|(.6,.6)-|(.8,.4)-|(.6,.2)-|cycle;
+}}%
+\else\if6#2% 8
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(.4,0)rectangle(.6,.2)rectangle(.8,.4);
+     \fill(.2,.2)rectangle(.4,.4)rectangle(.6,.6)rectangle(.8,.8);
+     \fill(.2,.6)rectangle(.4,.8)rectangle(.6,1);
+}}%
+\else\if7#2% 9
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(.2,.6)rectangle(.4,.8)rectangle(.6,1);
+     \fill(.4,.4)rectangle(.6,.6)rectangle(.8,.8);
+     \fill(0,0)-|(1,.2)-|(.8,.4)-|(.6,.2)-|(.4,.4)-|(.2,.2)-|cycle;
+}}%
+\else\if8#2% :
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(.4,0)rectangle(.6,.2); \fill(.4,.4)rectangle(.6,.6);
+}}%
+\fi\fi\fi\fi\fi\fi\fi\fi\fi% 2-9:
+\else\if6#1% 65-69
+     \if5#2% A
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,0)-|(.2,.8)-|(.6,1)-|cycle;
+     \fill(.8,0)rectangle(1,1); \fill(.4,.4)rectangle(.6,.6);
+}}%
+\else\if6#2% B
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,0)rectangle(.6,.2); \fill(.2,.4)rectangle(.6,.6); \fill(0,.8)rectangle(.6,1);
+     \fill(.8,.2)rectangle(1,.4); \fill(.8,.6)rectangle(1,.8);
+}}%
+\else\if7#2% C
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(.2,0)rectangle(1,.2); \fill(0,.2)rectangle(.2,.8)rectangle(1,1);
+}}%
+\else\if8#2% D
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(.2,0)rectangle(.8,.2)rectangle(1,.8);
+     \fill(.2,.8)rectangle(.8,1); \fill(0,.4)rectangle(.2,.6);
+}}%
+\else\if9#2% E
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,.2)rectangle(.2,.8)rectangle(.8,1);
+     \fill(.2,0)rectangle(.8,.2); \fill(.8,.4)rectangle(1,.6);
+}}%
+\fi\fi\fi\fi\fi% A-E
+\else\if7#1% 70-79
+     \if0#2% F
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,0)-|(.2,.8)-|(1,1)-|cycle; \fill(.4,.4)rectangle(.6,.6);
+}}%
+\else\if1#2% G
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,0)-|(1,.2)-|(.2,1)-|cycle; \fill(.4,.4)rectangle(.6,.6);
+}}%
+\else\if2#2% H
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,0)rectangle(.2,.8); \fill(.8,0)rectangle(1,.8);
+     \fill(.4,0)-|(.6,.8)-|(.8,1)-|(.2,.8)-|cycle;
+}}%
+\else\if3#2% I
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(.4,0)rectangle(.6,.2); \fill(.4,.8)rectangle(.6,1);
+}}%
+\else\if4#2% J
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,0)-|(1,1)-|(.8,.2)-|cycle; \fill(.4,.4)rectangle(.6,.6);
+}}%
+\else\if5#2% K
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(.2,0)rectangle(1,.2); \fill(.2,.8)rectangle(1,1);
+     \fill(0,.2)-|(.2,.4)-|(1,.6)-|(.2,.8)-|cycle;
+}}%
+\else\if6#2% L
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,0)-|(1,.2)-|(.2,1)-|cycle;
+}}%
+\else\if7#2% M
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,0)rectangle(.2,.6); \fill(.4,.2)rectangle(.6,.6); \fill(.8,0)rectangle(1,.6);
+     \fill(.2,.8)rectangle(.4,1); \fill(.6,.8)rectangle(.8,1);
+}}%
+\else\if8#2% N
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,0)-|(1,.2)-|(.4,.4)-|(.2,.2)-|cycle;
+     \fill(.4,.4)rectangle(.6,.6)rectangle(.8,.8)rectangle(1,1);
+}}%
+\else\if9#2% O
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,0)-|(1,.2)-|(.8,.4)-|(.6,.2)-|(.2,.6)-|(.4,.8)-|(.2,1)-|cycle;
+     \fill(.4,.4)rectangle(.6,.6);
+}}%
+\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi% F-O
+\else\if8#1% 80-89
+     \if0#2% P
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(.8,0)-|(1,1)-|(0,.8)-|cycle; \fill(.4,.4)rectangle(.6,.6);
+}}%
+\else\if1#2% Q
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,0)-|(.2,.2)-|(.4,.4)-|(.2,1)-|cycle;
+     \fill(.4,.4)rectangle(.6,.6)rectangle(.8,.8)rectangle(1,1); \fill(.8,0)rectangle(1,.2);
+}}%
+\else\if2#2% R
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,0)-|(1,.2)-|(.4,.4)-|(.2,.2)-|cycle;
+     \fill(.4,.4)rectangle(.6,.6)rectangle(.8,.8)rectangle(1,1); \fill(0,.8)rectangle(.2,1);
+}}%
+\else\if3#2% S
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,0)-|(1,.2)-|(.2,.6)-|cycle; \fill(0,.8)-|(.8,.4)-|(1,1)-|cycle;
+}}%
+\else\if4#2% T
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,0)-|(1,.2)-|(.6,1)-|(.4,.2)-|cycle;
+}}%
+\else\if5#2% U
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(.8,0)-|(1,1)-|(.8,.4)-|(.6,.2)-|cycle;
+     \fill(0,1)rectangle(.2,.8)rectangle(.4,.6)rectangle(.6,.4);
+}}%
+\else\if6#2% V
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,0)-|(1,.2)-|(.8,.4)-|(.6,.2)-|cycle;
+     \fill(0,1)rectangle(.2,.8)rectangle(.4,.6)rectangle(.6,.4);
+}}%
+\else\if7#2% W
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,.2)rectangle(.2,1); \fill(.8,.2)rectangle(1,1);
+     \fill(.2,0)-|(.8,.2)-|(.6,1)-|(.4,.2)-|cycle;
+}}%
+\else\if8#2% X
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,0)-|(.6,.2)-|(.2,1)-|cycle; \fill(.8,0)-|(1,1)-|(.4,.8)-|cycle;
+}}%
+\else\if9#2% Y
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(.8,0)-|(1,1)-|(.8,.4)-|(.6,.2)-|cycle;
+     \fill(0,1)rectangle(.2,.8)rectangle(.4,.6)rectangle(.6,.4);
+     \fill(0,0)rectangle(.2,.2);
+}}%
+\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi% P-Y
+\else\if9#1% 90,91,93,95
+     \if0#2% Z
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,.8)-|(.6,.6)-|(.8,.8)-|(1,1)-|cycle;
+     \fill(0,0)rectangle(.2,.2)rectangle(.4,.4)rectangle(.6,.6);
+     \fill(.8,0)rectangle(1,.2);
+}}%
+\else\if1#2% [
+\makebox[\fpeval{5*\pixelcm+\pixelcm/\pixelratio}mm]{}%
+\makebox[\fpeval{5*\pixelcm-\pixelcm/\pixelratio}mm][l]{%
+\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(.8,0)rectangle(1,.4); \fill(.6,.4)rectangle(.8,.6)rectangle(1,1);
+}}%
+\else\if3#2% ]
+\makebox[\fpeval{5*\pixelcm-\pixelcm/\pixelratio}mm][r]{%
+\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,0)rectangle(.2,.4)rectangle(.4,.6); \fill(0,.6)rectangle(.2,1);
+}}\makebox[\fpeval{5*\pixelcm+\pixelcm/\pixelratio}mm]{}%
+\else\if5#2% _
+\makebox[\pixelcm cm]{\tikz[ultra thin,scale=\pixelcm/\pixelratio,baseline=0]{
+     \fill(0,0)rectangle(1,.2);
+}}%
+\fi\fi\fi\fi% Z[]_
+\fi\fi\fi\fi\fi\fi\fi% 33 44 55 66 77 88 90
+}
+
+\newcommand\cradle[2]{% 印刷体摇篮文，使用 \cradleXX 书写，XX 为两位十进制 ASCII 值
+     \if3#1% 32,33,35,36,37
+     \if2#2% space
+\makebox[\cradlecm cm]{}% 全角空格
+\else\if3#2% ! 100
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=1,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,.5)--(.5,0)--(1,.5); \draw(.5,0)--(.5,1); % 半径为 1 防止出头
+}}%
+\else\if5#2% # 1000
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(1,1)--(0,1)--(.5,.5); \draw(.5,0)--(.5,1);
+}}%
+\else\if6#2% $ 10000
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,1)--(1,1)--(.5,.5); \draw(.5,0)--(.5,1);
+     \fill(.1,.5)circle[radius=.1];
+}}%
+\else\if7#2% %
+\makebox[\cradlecm cm][c]{\tikz[ultra thick,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,1)--(1,0);
+     \fill(.5,.9)circle[radius=.1]; \fill(.5,.1)circle[radius=.1];
+}}%
+\fi\fi\fi\fi\fi%
+\else\if4#1% 44-49
+     \if4#2% , square
+\makebox[\cradlecm cm]{\tikz[ultra thin,scale=\cradlecm/\cradleratio,baseline=0]{
+     \fill(2/3,0)arc(-90:0:1/3)--(1,2/3)arc(0:90:1/3)--(1/3,1)arc(90:180:1/3)--(0,1/3)arc(180:270:1/3)--cycle;
+}}%
+\else\if5#2% -
+\makebox[\cradlecm cm]{\tikz[ultra thin,scale=\cradlecm/\cradleratio,baseline=0]{ % 这个是填充的！
+     \fill(.7,.6)arc(-90:90:.1)--(.3,.8)arc(90:270:.1)--cycle;
+     \fill(.3,.3)circle[radius=.1]; \fill(.7,.3)circle[radius=.1];
+}}%
+\else\if6#2% . zero
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \fill(.5,.5)circle[radius=.1];
+}}%
+\else\if7#2% /
+\makebox[\cradlecm cm][c]{\tikz[ultra thick,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,0)--(1,1);
+}}%
+\else\if8#2% 0 ten
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=1,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,.5)--(.5,1)--(1,.5); \draw(.5,0)--(.5,1); % 半径为 1 防止出头
+}}%
+\else\if9#2% 1
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,.5)--(1,.5);
+}}%
+\fi\fi\fi\fi\fi\fi% ,-./01
+\else\if5#1% 50-58
+     \if0#2% 2
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,1)-|(1,0);
+}}%
+\else\if1#2% 3
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,1)-|(1,0); \draw(0,0)--(.5,.5);
+}}%
+\else\if2#2% 4
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(.5,0)--(1,.5)--(.5,1)--(0,.5)--cycle;
+}}%
+\else\if3#2% 5
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(.5,0)--(1,.5)--(.5,1)--(0,.5)--cycle;
+     \fill(.5,.5)circle[radius=.1];
+}}%
+\else\if4#2% 6
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(.5,0)--(1,.5)--(.5,1)--(0,.5)--cycle;
+     \fill(.5,.5)circle[radius=.1]; \draw(0,1)--(1,1);
+}}%
+\else\if5#2% 7
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(.5,0)--(1,.5)--(.5,1)--(0,.5)--cycle;
+     \fill(.5,.5)circle[radius=.1]; \draw(0,1)-|(1,0);
+}}%
+\else\if6#2% 8
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(.5,0)--(.85,.35)--(.5,.7)--(.15,.35)--cycle; \draw(.5,1)--(.85,.65)--(.5,.3)--(.15,.65)--cycle;
+}}%
+\else\if7#2% 9
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(.5,0)--(.85,.35)--(.5,.7)--(.15,.35)--cycle; \draw(.5,1)--(.85,.65)--(.5,.3)--(.15,.65)--cycle;
+     \draw(.15,0)--(.85,0);
+}}%
+\else\if8#2% :
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \fill(.5,.5)circle[radius=.1]; \fill(.5,.1)circle[radius=.1];
+}}%
+\fi\fi\fi\fi\fi\fi\fi\fi\fi% 2-9:
+\else\if6#1% 65-69
+     \if5#2% A
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,0)--(.5,1)--(1,0); \fill(.5,.1)circle[radius=.1];
+}}%
+\else\if6#2% B
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,1)--(1,2/3)--(0,1/3); \draw(0,0)--(1,1/3)--(0,2/3);
+}}%
+\else\if7#2% C
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(1,1)--(0,.5)--(1,0);
+}}%
+\else\if8#2% D
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,1)--(1,.5)--(0,0); \fill(.1,.5)circle[radius=.1];
+}}%
+\else\if9#2% E
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(1,1)--(0,.5)--(1,0); \fill(.9,.5)circle[radius=.1];
+}}%
+\fi\fi\fi\fi\fi% A-E
+\else\if7#1% 70-79
+     \if0#2% F
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,0)|-(1,1); \fill(.5,.5)circle[radius=.1];
+}}%
+\else\if1#2% G
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,1)|-(1,0); \fill(.5,.5)circle[radius=.1];
+}}%
+\else\if2#2% H
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=1,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,0)--(.5,1)--(1,0); \draw(.5,0)--(.5,.99); % 配合半径为 1 防止出头
+}}%
+\else\if3#2% I
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \fill(.5,.2)circle[radius=.1]; \fill(.5,.8)circle[radius=.1];
+}}%
+\else\if4#2% J
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,0)-|(1,1); \fill(.5,.5)circle[radius=.1];
+}}%
+\else\if5#2% K
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=1,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(1,1)--(0,.5)--(1,0); \draw(.01,.5)--(1,.5); % 配合半径为 1 防止出头
+}}%
+\else\if6#2% L
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,1)|-(1,0);
+}}%
+\else\if7#2% M
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,0)--(1/3,1)--(2/3,0); \draw(1/3,0)--(2/3,1)--(1,0);
+}}%
+\else\if8#2% N
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(1,1)--(0,0)--(1,0);
+}}%
+\else\if9#2% O
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,1)|-(1,0)-- cycle;
+}}%
+\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi% F-O
+\else\if8#1% 80-89
+     \if0#2% P
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,1)-|(1,0); \fill(.5,.5)circle[radius=.1];
+}}%
+\else\if1#2% Q
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,1)--(0,0)--(1,1); \fill(.9,.1)circle[radius=.1];
+}}%
+\else\if2#2% R
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(1,0)--(0,0)--(1,1); \fill(.1,.9)circle[radius=.1];
+}}%
+\else\if3#2% S
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(1/6,1)--(1,.75)--(2/3,7/12); \draw(5/6,0)--(0,.25)--(1/3,5/12);
+}}%
+\else\if4#2% T
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,0)--(1,0); \draw(.5,0)--(.5,1);
+}}%
+\else\if5#2% U
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,1)--(.5,0)--(1,1);
+}}%
+\else\if6#2% V
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,1)--(1,.5)--(0,0);
+}}%
+\else\if7#2% W
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=1,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,1)--(.5,0)--(1,1); \draw(.5,.01)--(.5,1); % 配合半径为 1 防止出头
+}}%
+\else\if8#2% X
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,5/6)--(.25,0)--(5/12,1/3); \draw(1,1/6)--(.75,1)--(7/12,2/3);
+}}%
+\else\if9#2% Y
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,1)--(1,0)--(1,1); \fill(.1,.1)circle[radius=.1];
+}}%
+\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi% P-Y
+\else\if9#1% 90,91,93,95
+     \if0#2% Z
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,1)--(1,1)--(0,0); \fill(.9,.1)circle[radius=.1];
+}}%
+\else\if1#2% [
+\makebox[\fpeval{5*\cradlecm+\cradlecm/\cradleratio}mm]{}%
+\makebox[\fpeval{5*\cradlecm-\cradlecm/\cradleratio}mm][l]{%
+\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(1,1)--(2/3,.5)--(1,0);
+}}%
+\else\if3#2% ]
+\makebox[\fpeval{5*\cradlecm-\cradlecm/\cradleratio}mm][r]{%
+\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,1)--(1/3,.5)--(0,0);
+}}\makebox[\fpeval{5*\cradlecm+\cradlecm/\cradleratio}mm]{}%
+\else\if5#2% _
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,0)--(1,0);
+}}%
+\fi\fi\fi\fi% Z[]_
+\fi\fi\fi\fi\fi\fi\fi% 33 44 55 66 77 88 90
+}
+
+\newcommand\cane{% 以下字符没有对应的像素体
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=1,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(.5,1)--(.85,.65)--(.5,.3)--(.15,.65)--cycle; \draw(.5,0)--(.5,1);
+}}} % 印刷体法杖
+
+\newcommand\varthree{\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,1)-|(1,0); \fill(.1,.1)circle[radius=.1];
+}}} % 左下角是圆点的 3 变体
+
+\newcommand\squareO{\makebox[\cradlecm cm]{\tikz[ultra thick,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(2/3,0)arc(-90:0:1/3)--(1,2/3)arc(0:90:1/3)--(1/3,1)arc(90:180:1/3)--(0,1/3)arc(180:270:1/3)--cycle;
+}}} % 正方形的 O 变体
+
+\newcommand\doubleU{%
+\makebox[\cradlecm cm]{\tikz[ultra thick,rounded corners=2,scale=\cradlecm/\cradleratio,baseline=0]{
+     \draw(0,1)--(1/3,0)--(2/3,1); \draw(1/3,1)--(2/3,0)--(1,1);
+}}} % 和 M 而不是和 H 上下对称的 W 变体
